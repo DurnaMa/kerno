@@ -1,59 +1,61 @@
 # Kerno
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+A personal knowledge management and note-taking app, built as an alternative to Obsidian — designed with clarity and accessibility in mind.
 
-## Development server
+## About
 
-To start a local development server, run:
+Kerno is a self-built PKM (Personal Knowledge Management) tool focused on:
+
+- Simple, clear structure
+- Fuzzy search (typo-tolerant)
+- Code snippets with documentation
+- Tag-based organization
+- Fast note creation via templates
+
+Built as a learning project to deepen Angular and Supabase skills.
+
+## Tech Stack
+
+| Layer | Technology                |
+|---|---------------------------|
+| Frontend | Angular 21                |
+| Styling | Tailwind CSS              |
+| Backend | Supabase (Database + Auth) |
+| Search | Fuse.js                   |
+| Editor | TipTap / CodeMirror       |
+| Desktop | Electron (planned)        |
+
+## Status
+
+Work in progress — early development.
+
+- [x] Project setup
+- [ ] Supabase connection
+- [ ] Note CRUD
+- [ ] Fuzzy search
+- [ ] Tags
+- [ ] Authentication
+- [ ] Electron wrapper
+
+## Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200` in your browser.
 
-## Code scaffolding
+## Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js 18+
+- Angular CLI (`npm install -g @angular/cli`)
+- Supabase account (for backend)
 
-```bash
-ng generate component component-name
-```
+## License
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
