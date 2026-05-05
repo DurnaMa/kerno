@@ -1,1 +1,3 @@
-<p>note-editor works!</p>
+<input [(ngModel)]="title" placeholder="Titel"/>
+<textarea [(ngModel)]="content" placeholder="Text" cols="30" rows="10"></textarea>
+<button (click)="save()">Speichern</button>
