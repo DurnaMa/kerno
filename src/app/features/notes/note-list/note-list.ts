@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoteService, Note } from '../note';
-import { NoteEditorComponent} from '../note-editor/note-editor';
+import { NoteEditorComponent } from '../note-editor/note-editor';
 
 @Component({
   selector: 'app-note-list',
@@ -10,18 +10,24 @@ import { NoteEditorComponent} from '../note-editor/note-editor';
   templateUrl: './note-list.html',
 })
 export class NoteListComponent implements OnInit {
-  notes: Note[] = [];
-  loading = true;
+  notes = signal<Note[]>([]);
+  loading = signal(true);
 
   constructor(private noteService: NoteService) {}
 
   async ngOnInit() {
+    await this.loadNotes();
+  }
+
+  async loadNotes() {
+    this.loading.set(true)
     try {
-      this.notes = (await this.noteService.getNotes()) ?? [];
+      const result = await this.noteService.getNotes();
+      this.notes.set(result ?? []);
     } catch (error) {
-      console.error(error);
+      console.error('Fehler:', error);
     } finally {
-      this.loading = false;
+      this.loading.set(false)
     }
   }
 }

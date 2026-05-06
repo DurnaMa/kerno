@@ -1,15 +1,16 @@
 <div class="p-4">
   <h1 class="text-2xl font-bold mb-4">Meine Notizen</h1>
-  @if (loading) {
+  <app-note-editor (noteSaved)="loadNotes()"></app-note-editor>
+  @if (loading()) {
     <div>Lädt...</div>
   }
 
-  @if (!loading && notes.length === 0) {
+  @if (!loading() && notes().length === 0) {
     <div>Noch keine Notizen vorhanden.</div>
   }
 
-  @for (note of notes; track note.id) {
+  @for (note of notes(); track note.id) {
     <div>{{ note.title }}</div>
+    <div>{{ note.content }}</div>
   }
 </div>
-<app-note-editor></app-note-editor>
