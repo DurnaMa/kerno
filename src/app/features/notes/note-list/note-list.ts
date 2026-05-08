@@ -1,13 +1,13 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoteService, Note } from '../note';
-import { NoteEditorComponent } from '../note-editor/note-editor';
+// import { NoteEditorComponent } from '../note-editor/note-editor';
 import { Search } from '../../../core/search';
 
 @Component({
   selector: 'app-note-list',
   standalone: true,
-  imports: [CommonModule, NoteEditorComponent],
+  imports: [CommonModule],
   templateUrl: './note-list.html',
 })
 export class NoteListComponent implements OnInit {

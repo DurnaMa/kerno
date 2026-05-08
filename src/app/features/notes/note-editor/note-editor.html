@@ -1,3 +1,31 @@
-<input [(ngModel)]="title" placeholder="Titel" />
-<textarea [(ngModel)]="content" placeholder="Text" cols="30" rows="10"></textarea>
-<button (click)="save()">Speichern</button>
+<div class="flex flex-col h-full p-6 gap-4">
+  <input
+    [(ngModel)]="title"
+    placeholder="Titel"
+    class="bg-transparent border-b border-gray-600 text-white text-2xl font-bold placeholder-gray-500 focus:outline-none focus:border-blue-500 pb-2"
+  />
+
+  <textarea
+    [(ngModel)]="content"
+    placeholder="Schreib etwas..."
+    class="flex-1 bg-transparent text-gray-100 text-base placeholder-gray-500 focus:outline-none resize-none"
+  ></textarea>
+
+  <div class="flex gap-2">
+    <input
+      [(ngModel)]="tagInput"
+      placeholder="Tag hinzufügen"
+      class="bg-gray-700 text-gray-100 placeholder-gray-400 rounded px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button (click)="addTag()" class="bg-gray-700 text-gray-100 rounded px-4 py-2 hover:bg-gray-600 transition-colors">
+      Tag
+    </button>
+  </div>
+
+  <button
+    (click)="save()"
+    class="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-500 transition-colors font-medium"
+  >
+    {{ saving ? 'Speichern...' : 'Speichern' }}
+  </button>
+</div>

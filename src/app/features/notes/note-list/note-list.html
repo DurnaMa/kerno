@@ -1,17 +1,24 @@
-<div class="p-4">
-  <h1 class="text-2xl font-bold mb-4">Meine Notizen</h1>
-  <app-note-editor (noteSaved)="loadNotes()"></app-note-editor>
-  <input (input)="onSearch($event)" placeholder="Suchen..." />
+<div class="flex flex-col h-full p-4">
+  <h1 class="text-lg font-bold mb-4 text-white">Kerno</h1>
+
+  <input
+    (input)="onSearch($event)"
+    placeholder="Suchen..."
+    class="w-full bg-gray-700 text-gray-100 placeholder-gray-400 rounded px-4 py-2 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+
   @if (loading()) {
-    <div>Lädt...</div>
+    <div class="text-gray-400 text-sm">Lädt...</div>
   }
 
   @if (!loading() && notes().length === 0) {
-    <div>Noch keine Notizen vorhanden.</div>
+    <div class="text-gray-400 text-sm">Noch keine Notizen.</div>
   }
 
   @for (note of filteredNotes(); track note.id) {
-    <div>{{ note.title }}</div>
-    <div>{{ note.content }}</div>
+    <div class="rounded px-3 py-2 mb-1 cursor-pointer hover:bg-gray-700 transition-colors">
+      <div class="text-base font-medium text-gray-100">{{ note.title }}</div>
+      <div class="text-base text-gray-400 truncate">{{ note.content }}</div>
+    </div>
   }
 </div>
