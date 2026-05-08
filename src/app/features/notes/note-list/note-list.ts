@@ -41,4 +41,8 @@ export class NoteListComponent implements OnInit {
     if (!term) return this.notes();
     return this.searchService.search(this.notes(), term);
   });
+
+  onSearch(event: Event) {
+    this.query.set((event.target as HTMLInputElement).value);
+  }
 }
